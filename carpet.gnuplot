@@ -25,10 +25,7 @@ set style arrow 1 nohead linewidth 1
 
 carpet(n, x, y, d) \
   = n >= number ?  \
-    sprintf("set arrow from %f,%f to %f,%f as 1;", x, y, x + d, y) . \
-    sprintf("set arrow from %f,%f to %f,%f as 1;", x + d, y, x + d, y + d) . \
-    sprintf("set arrow from %f,%f to %f,%f as 1;", x + d, y + d, x, y + d) . \
-    sprintf("set arrow from %f,%f to %f,%f as 1;", x, y + d, x, y) : \
+    sprintf("set object rect from %f,%f to %f,%f fc rgb '#000000' fs solid;", x, y, x + d, y + d) : \
     carpet(n + 1, x, y, d / 3) . \
     carpet(n + 1, x + d / 3, y, d / 3) . \
     carpet(n + 1, x + 2 * d / 3, y, d / 3) . \
